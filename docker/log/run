@@ -1,0 +1,4 @@
+#!/bin/sh
+LOG_DIR=/var/log/docker
+[ -d $LOG_DIR ] || mkdir -p $LOG_DIR
+exec svlogd -t $LOG_DIR

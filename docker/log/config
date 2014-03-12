@@ -1,0 +1,17 @@
+# man svlogd
+# rotate log files if they exceed 50Mb
+s52428800
+# never automatically remove old log files
+n0
+# don't set min number of old log files as above is 0
+# N5
+# force a rotation of log files every 30 days even if size isn't too big
+t2592000
+# forward logs through udp via PRIVATE_IP:PORT defualt is 514
+#u127.0.0.1
+# feed a rolled log through gzip, output will be stored as @timestamp.s
+!gzip
+# prefix each line with the following
+#pDOCKER_LOG
+# optionally do pattern matching for (de)selection
+#-bougyman

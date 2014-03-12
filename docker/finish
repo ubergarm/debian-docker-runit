@@ -1,0 +1,4 @@
+#!/bin/sh
+# CODE=$1
+# STATUS=$2
+# HOSTNAME=$(hostname)

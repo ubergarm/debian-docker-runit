@@ -1,0 +1,7 @@
+#!/bin/sh
+exec 2>&1
+# make sure cgroups is mounted properly (many mount points)
+/usr/local/bin/cgroupfs-mount
+# remove any stale socket if a reboot/crash occurred etc...
+rm /var/run/docker.sock
+exec docker -d -D -H unix:///var/run/docker.sock
