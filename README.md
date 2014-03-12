@@ -2,6 +2,8 @@ debian-docker-runit
 ===================
 A `runit` configuration to start up docker daemon 0.9.0 on Debian jessie/sid.
 
+Note: There is now a sysvinit-debian init script solution [Debian docker init script](https://github.com/dotcloud/docker/pull/4574)
+
 As of Docker 0.9.0, cgroups should be mounted individually e.g.:
 
     $ mount
