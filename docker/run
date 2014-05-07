@@ -4,4 +4,9 @@ exec 2>&1
 /usr/local/bin/cgroupfs-mount
 # remove any stale socket if a reboot/crash occurred etc...
 rm /var/run/docker.sock
-exec docker -d -D -H unix:///var/run/docker.sock
+# configure docker0 the same each time 
+ip link del docker0 
+ip link add docker0 type bridge
+ip addr add 172.17.42.1/16 dev docker0 
+ip link set docker0 up
+exec docker -d -D -H unix:///var/run/docker.sock -b=docker0 --dns 172.17.42.1 --dns 8.8.4.4
